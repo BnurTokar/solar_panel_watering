@@ -1,0 +1,849 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/UnevenTerrain.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/panels/protos/Panel.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/plants/protos/PottedTree.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/trees/protos/SimpleTree.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/buildings/protos/Barn.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/road/protos/StraightRoadSegment.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Asphalt.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Pavement.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/street_furniture/protos/ElectricalCabinet.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/dji/mavic/protos/Mavic2Pro.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.1323899853857394 -0.31606081885608267 0.9394564654913957 5.4443578345230845
+  position -19.30795314866217 5.031264349162228 8.911646342938164
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+UnevenTerrain {
+  size 95 50 5
+  xDimension 23
+  yDimension 24
+}
+StraightRoadSegment {
+  translation -49 -21 4
+  width 3
+  length 95
+  appearance Asphalt {
+    colorOverride 0.871504 0.871504 0.871504
+  }
+  pavementAppearance Pavement {
+    type "braun stone"
+  }
+}
+Barn {
+  translation -2.26507 -7.32377 2.66
+  rotation 0 0 1 1.507
+  scale 0.5
+}
+ElectricalCabinet {
+  translation -6.83 -8.07 2.55
+  rotation 0 0 1 1.5708
+}
+ElectricalCabinet {
+  translation -8.77 -8.08 2.58
+  rotation 0 0 1 1.5708
+  name "electrical cabinet(1)"
+}
+DEF inspection_dock Solid {
+  translation -6.74 -6.25 2.72
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.399161 0.399161 0.399161
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.6
+      }
+    }
+  ]
+  boundingObject Box {
+    size 1.5 1.5 0.15
+  }
+}
+DEF cleaning_dock Solid {
+  translation -8.72 -6.25 2.77
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.399161 0.399161 0.399161
+        metalness 0
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.6
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject Box {
+    size 1.5 1.5 0.15
+  }
+}
+DEF cleaning_drone Mavic2Pro {
+  translation -8.628207840121707 -6.294685494405936 2.9107309220885687
+  controller "cleaning_controller"
+  supervisor TRUE
+  bodySlot [
+    DEF Water_Spray Pose {
+      translation 0 0 -0.58
+      children [
+        Shape {
+          appearance DEF WATER_MATERIAL PBRAppearance {
+            baseColor 0.3 0.65 1
+            transparency 0.35
+            metalness 0
+          }
+          geometry Cone {
+            bottomRadius 0.3
+            height 1
+          }
+        }
+      ]
+    }
+  ]
+}
+SimpleTree {
+  translation 30 -10 3.19
+}
+SimpleTree {
+  translation 30 10 3.19
+  name "tree(1)"
+}
+SimpleTree {
+  translation 30 20 3.19
+  name "tree(2)"
+}
+SimpleTree {
+  translation 20 -15 3.19
+  name "tree(3)"
+}
+SimpleTree {
+  translation 20 0 3.19
+  name "tree(4)"
+}
+SimpleTree {
+  translation 20 17 3.19
+  name "tree(5)"
+}
+SimpleTree {
+  translation 8 -5 3.19
+  name "tree(6)"
+}
+SimpleTree {
+  translation 11 6 3.19
+  name "tree(7)"
+}
+SimpleTree {
+  translation -20 8 3.19
+  name "tree(8)"
+}
+SimpleTree {
+  translation -23 -8 3.19
+  name "tree(9)"
+}
+SimpleTree {
+  translation -30 15 3.19
+  name "tree(10)"
+}
+SimpleTree {
+  translation -40 0 3.19
+  name "tree(11)"
+}
+SimpleTree {
+  translation -40 -15 3.19
+  name "tree(12)"
+}
+PottedTree {
+  translation 20.89 0 3.19
+}
+Panel {
+  translation 0.410119 -0.02 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(1)"
+}
+DEF DIRT_1 Pose {
+  translation 0.926696 0.58 4.29417
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_1_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.35 0.25 0.12
+        transparency 0.15
+        roughness 1
+        metalness 0
+      }
+      geometry Plane {
+        size 1.45 1.15
+      }
+    }
+  ]
+}
+Panel {
+  translation 0.410119 3.03 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(2)"
+}
+DEF DIRT_2 Pose {
+  translation 0.62959 3.38 3.99729
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_2_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.35 0.25 0.12
+        transparency 0.001
+        roughness 1
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.1
+      }
+    }
+  ]
+}
+Panel {
+  translation 0.410119 5.93 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(3)"
+}
+DEF DIRT_3 Pose {
+  translation 0.926696 6.83 4.29417
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_3_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.35 0.25 0.12
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.2
+      }
+    }
+  ]
+}
+Panel {
+  translation 0.410119 8.62 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(4)"
+}
+DEF DIRT_4 Pose {
+  translation 1.13889 9.33 4.50623
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_4_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.35 0.25 0.12
+        transparency 0.1
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.2
+      }
+    }
+  ]
+}
+Panel {
+  translation 0.410119 11.36 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(5)"
+}
+DEF DIRT_5 Pose {
+  translation 0.799385 12.32 4.16692
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_5_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.4 0.25 0.12
+        roughness 1
+        metalness 0
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate {
+          point [
+            -0.12 0.1 0
+            0.1 0.15 0
+            0.15 -0.15 0
+            -0.15 -0.15 0
+          ]
+        }
+        ccw FALSE
+        coordIndex [
+          0, 1, 2, 3, -1
+        ]
+      }
+    }
+  ]
+}
+Panel {
+  translation 0.410119 14.5 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(6)"
+}
+DEF DIRT_6 Pose {
+  translation 0.926696 15.12 4.29417
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_6_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.35 0.25 0.12
+        transparency 0.15
+        roughness 1
+        metalness 0
+      }
+      geometry Plane {
+      }
+    }
+  ]
+}
+Panel {
+  translation 0.410119 17.34 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(7)"
+}
+DEF DIRT_7 Pose {
+  translation 0.926696 17.97 4.29417
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_7_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.35 0.25 0.12
+        transparency 0.15
+        roughness 1
+        metalness 0
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate {
+          point [
+            -0.1 -0.1 0
+            -0.4 -0.3 0
+            0.6 0.6 0
+            0.5 -0.5 0
+          ]
+        }
+        coordIndex [
+          0, 3, 2
+        ]
+      }
+    }
+  ]
+}
+Panel {
+  translation -3.97 0 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(8)"
+}
+DEF DIRT_8 Pose {
+  translation -3.47501 0.58 4.32229
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_9_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.35 0.25 0.12
+        transparency 0.15
+        roughness 1
+        metalness 0
+      }
+      geometry Plane {
+        size 1.45 1.15
+      }
+    }
+  ]
+}
+Panel {
+  translation -3.97 3.11 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(9)"
+}
+DEF DIRT_9 Pose {
+  translation -3.3192 3.78 4.64758
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_9_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.35 0.25 0.12
+        transparency 0.001
+        roughness 1
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.1
+      }
+    }
+  ]
+}
+Panel {
+  translation -3.97 6.02 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(10)"
+}
+DEF DIRT_10 Pose {
+  translation -3.53869 6.46 4.11729
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_10_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.35 0.25 0.12
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.2
+      }
+    }
+  ]
+}
+Panel {
+  translation -3.97 8.72 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(11)"
+}
+DEF DIRT_11 Pose {
+  translation -4.11857 9.68 4.35782
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_11_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.35 0.25 0.12
+        transparency 0.1
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.2
+      }
+    }
+  ]
+}
+Panel {
+  translation -3.97 11.29 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(12)"
+}
+DEF DIRT_12 Pose {
+  translation -3.51746 11.96 4.30819
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_12_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.4 0.25 0.12
+        roughness 1
+        metalness 0
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate {
+          point [
+            -0.12 0.1 0
+            0.1 0.15 0
+            0.15 -0.15 0
+            -0.15 -0.15 0
+          ]
+        }
+        ccw FALSE
+        coordIndex [
+          0, 1, 2, 3, -1
+        ]
+      }
+    }
+  ]
+}
+Panel {
+  translation -3.97 14.19 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(13)"
+}
+DEF DIRT_13 Pose {
+  translation -3.68723 14.78 4.09608
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_13_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.35 0.25 0.12
+        transparency 0.15
+        roughness 1
+        metalness 0
+      }
+      geometry Plane {
+      }
+    }
+  ]
+}
+Panel {
+  translation -3.97 16.92 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(14)"
+}
+DEF DIRT_14 Pose {
+  translation -3.92067 17.47 3.82038
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_14_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.35 0.25 0.12
+        transparency 0.15
+        roughness 1
+        metalness 0
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate {
+          point [
+            -0.1 -0.1 0
+            -0.4 -0.3 0
+            0.6 0.6 0
+            0.5 -0.5 0
+          ]
+        }
+        coordIndex [
+          0, 3, 2
+        ]
+      }
+    }
+  ]
+}
+Panel {
+  translation -7 0 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(15)"
+}
+DEF DIRT_15 Pose {
+  translation -6.52625 0.6 4.35741
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_15_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.500008 0.489616 0.452903
+        transparency 0.15
+        roughness 1
+        metalness 0
+      }
+      geometry Plane {
+        size 1.45 1.15
+      }
+    }
+  ]
+}
+Panel {
+  translation -7 3.11 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(16)"
+}
+DEF DIRT_16 Pose {
+  translation -6.60391 3.58 4.39313
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_16_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.500008 0.491814 0.478706
+        transparency 0.001
+        roughness 1
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.1
+      }
+    }
+  ]
+}
+Panel {
+  translation -7 6.02 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(17)"
+}
+DEF DIRT_17 Pose {
+  translation -6.57583 6.83 4.096
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_17_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.35 0.25 0.12
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.2
+      }
+    }
+  ]
+}
+Panel {
+  translation -7 8.72 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(18)"
+}
+DEF DIRT_18 Pose {
+  translation -6.63951 9.33 4.14543
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_18_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.354772 0.293935 0.349569
+        transparency 0.1
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.2
+      }
+    }
+  ]
+}
+Panel {
+  translation -7 11.29 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(19)"
+}
+DEF DIRT_19 Pose {
+  translation -6.43422 11.72 4.40709
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_19_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.4 0.25 0.12
+        roughness 1
+        metalness 0
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate {
+          point [
+            -0.12 0.1 0
+            0.1 0.15 0
+            0.15 -0.15 0
+            -0.15 -0.15 0
+          ]
+        }
+        ccw FALSE
+        coordIndex [
+          0, 1, 2, 3, -1
+        ]
+      }
+    }
+  ]
+}
+Panel {
+  translation -7 14.19 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(20)"
+}
+DEF DIRT_20 Pose {
+  translation -6.54043 14.78 4.23036
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_20_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.314076 0.409491 0.382635
+        transparency 0.15
+        roughness 1
+        metalness 0
+      }
+      geometry Plane {
+      }
+    }
+  ]
+}
+Panel {
+  translation -7 16.92 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(21)"
+}
+DEF DIRT_21 Pose {
+  translation -6.62518 17.47 4.18805
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_21_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.35 0.25 0.12
+        transparency 0.15
+        roughness 1
+        metalness 0
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate {
+          point [
+            -0.1 -0.1 0
+            -0.4 -0.3 0
+            0.6 0.6 0
+            0.5 -0.5 0
+          ]
+        }
+        coordIndex [
+          0, 3, 2
+        ]
+      }
+    }
+  ]
+}
+Panel {
+  translation -10.5 0 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(22)"
+}
+DEF DIRT_22 Pose {
+  translation -10 0.58 4.29417
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_22_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.613153 0.412268 0.364523
+        transparency 0.15
+        roughness 1
+        metalness 0
+      }
+      geometry Plane {
+        size 1.45 1.15
+      }
+    }
+  ]
+}
+Panel {
+  translation -10.5 3.11 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(23)"
+}
+DEF DIRT_23 Pose {
+  translation -10.0126 3.71 4.27272
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_23_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.35 0.25 0.12
+        transparency 0.001
+        roughness 1
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.1
+      }
+    }
+  ]
+}
+Panel {
+  translation -10.5 6.02 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(24)"
+}
+DEF DIRT_24 Pose {
+  translation -9.89951 6.55 4.37179
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_24_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.17583 0.130388 0.107622
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.2
+      }
+    }
+  ]
+}
+Panel {
+  translation -10.5 8.72 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(25)"
+}
+DEF DIRT_25 Pose {
+  translation -10.1044 9.33 4.11007
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_25_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.316045 0.298268 0.302144
+        transparency 0.1
+      }
+      geometry Cylinder {
+        height 0.1
+        radius 0.2
+      }
+    }
+  ]
+}
+Panel {
+  translation -10.5 11.29 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(26)"
+}
+DEF DIRT_26 Pose {
+  translation -10.2929 11.56 4.00416
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_26_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.4 0.25 0.12
+        roughness 1
+        metalness 0
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate {
+          point [
+            -0.12 0.1 0
+            0.1 0.15 0
+            0.15 -0.15 0
+            -0.15 -0.15 0
+          ]
+        }
+        ccw FALSE
+        coordIndex [
+          0, 1, 2, 3, -1
+        ]
+      }
+    }
+  ]
+}
+Panel {
+  translation -10.5 14.19 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(27)"
+}
+DEF DIRT_27 Pose {
+  translation -9.85565 14.89 4.44245
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_27_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.374166 0.388022 0.28658
+        transparency 0.15
+        roughness 1
+        metalness 0
+      }
+      geometry Plane {
+      }
+    }
+  ]
+}
+Panel {
+  translation -10.5 16.92 3.74006
+  rotation 0 1 0 0.785398
+  name "panel(28)"
+}
+DEF DIRT_28 Pose {
+  translation -10.301 17.47 3.98309
+  rotation 0 -1 0 0.785
+  children [
+    DEF Dirt_28_shape Shape {
+      appearance PBRAppearance {
+        baseColor 0.35 0.25 0.12
+        transparency 0.15
+        roughness 1
+        metalness 0
+      }
+      geometry IndexedFaceSet {
+        coord Coordinate {
+          point [
+            -0.1 -0.1 0
+            -0.4 -0.3 0
+            0.6 0.6 0
+            0.5 -0.5 0
+          ]
+        }
+        coordIndex [
+          0, 3, 2
+        ]
+      }
+    }
+  ]
+}
