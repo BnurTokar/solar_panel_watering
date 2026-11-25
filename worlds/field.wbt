@@ -16,8 +16,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.1323899853857394 -0.31606081885608267 0.9394564654913957 5.4443578345230845
-  position -19.30795314866217 5.031264349162228 8.911646342938164
+  orientation 0.008749289889309947 0.011695612282012704 -0.9998933256001771 1.2846486675551232
+  position -6.638530805463532 25.77344997406853 9.286981425559532
 }
 TexturedBackground {
 }
@@ -90,9 +90,23 @@ DEF cleaning_dock Solid {
     size 1.5 1.5 0.15
   }
 }
+DEF inspection_drone Mavic2Pro {
+  translation -6.82 -6.18 2.905
+  name "Inspection Drone"
+  controller "inspection_controller"
+  supervisor TRUE
+  cameraSlot [
+    Camera {
+      rotation 0 1 0 1.570796
+      width 400
+      height 240
+    }
+  ]
+}
 DEF cleaning_drone Mavic2Pro {
   translation -8.628207840121707 -6.294685494405936 2.9107309220885687
-  controller "cleaning_controller"
+  name "Cleaning Drone"
+  controller "<none>"
   supervisor TRUE
   bodySlot [
     DEF Water_Spray Pose {
@@ -101,7 +115,7 @@ DEF cleaning_drone Mavic2Pro {
         Shape {
           appearance DEF WATER_MATERIAL PBRAppearance {
             baseColor 0.3 0.65 1
-            transparency 0.35
+            transparency 1
             metalness 0
           }
           geometry Cone {
@@ -407,7 +421,7 @@ Panel {
   name "panel(11)"
 }
 DEF DIRT_11 Pose {
-  translation -4.11857 9.68 4.35782
+  translation -3.82169 9.68 4.06073
   rotation 0 -1 0 0.785
   children [
     DEF Dirt_11_shape Shape {
