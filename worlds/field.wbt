@@ -16,8 +16,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.008749289889309947 0.011695612282012704 -0.9998933256001771 1.2846486675551232
-  position -6.638530805463532 25.77344997406853 9.286981425559532
+  orientation 0.3181289381105205 0.5607839320735 -0.7644052330177081 1.2768992655330396
+  position -12.476235687215874 -0.957150255635576 9.700243310673892
 }
 TexturedBackground {
 }
@@ -97,6 +97,7 @@ DEF inspection_drone Mavic2Pro {
   supervisor TRUE
   cameraSlot [
     Camera {
+      translation 0 0 -0.1
       rotation 0 1 0 1.570796
       width 400
       height 240
